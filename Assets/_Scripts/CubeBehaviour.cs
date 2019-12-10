@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CubeBehaviour : MonoBehaviour
 {
+    
     [SerializeField] private bool fixated = false;
     public bool Fixated
     {
@@ -40,10 +41,14 @@ public class CubeBehaviour : MonoBehaviour
             //Check if movable and can move
             if (CheckMoves.CanMove(transform, (transform.position - other.transform.position).normalized))
             {
+                GameManager.Instance.SaveCubePosition(transform, transform.position);
+
                 Move(transform.position - other.transform.position);
             }
             else if (Movable && CheckMoves.CanClimb(transform, (transform.position - other.transform.position).normalized))
             {
+                GameManager.Instance.SaveCubePosition(transform, transform.position);
+
                 PushUp(transform.position - other.transform.position);
             }
         }
@@ -63,7 +68,7 @@ public class CubeBehaviour : MonoBehaviour
 
     private IEnumerator StopMove(Vector3 dir, bool CheckBelow = true)
     {
-        Debug.Log("RE");
+        //Debug.Log("RE");
         float elapsed = 0;
         float moveDuration = 0.2f;
         Vector3 startPos = transform.position;

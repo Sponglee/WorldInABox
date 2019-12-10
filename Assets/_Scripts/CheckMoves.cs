@@ -44,6 +44,10 @@ public static class CheckMoves
                 }
                 else return false;
             }
+            else if(dirCheck.CompareTag("Liquid"))
+            {
+                return true;
+            }
             else if(dirCheck.CompareTag("Exit"))
             {
                 return true;
@@ -116,7 +120,7 @@ public static class CheckMoves
         //Shoot ray up from that cube
         if (Physics.Raycast(ray, out hit, 1f))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             return hit.transform;
         }
 

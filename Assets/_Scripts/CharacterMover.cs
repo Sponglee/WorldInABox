@@ -46,6 +46,8 @@ public class CharacterMover : MonoBehaviour
                         targetRot = new Vector3(0, 0, 0);
                         break;
                     }
+                case SwipeDirection.None:
+                    return;
                 default:
                     break;
             }
@@ -57,15 +59,21 @@ public class CharacterMover : MonoBehaviour
 
             if (CheckMoves.CanMove(transform, targetDir, true))
             {
-                Debug.Log("MOVE");
+                //Debug.Log("MOVE");
 
-                moveCoolDown = 0f;
-                StartCoroutine(StopMove(targetDir));
                 anim.SetTrigger("Move");
+                moveCoolDown = 0f;
+
+                GameManager.Instance.SaveCubePosition(transform, transform.position);
+
+                StartCoroutine(StopMove(targetDir));
             }
             else if(CheckMoves.CanClimb(transform, targetDir))
             {
-                    StartCoroutine(StopClimb(targetDir));
+                GameManager.Instance.SaveCubePosition(transform, transform.position);
+
+                StartCoroutine(StopClimb(targetDir));
+
             }
 
         }

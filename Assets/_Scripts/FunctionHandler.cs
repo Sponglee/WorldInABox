@@ -54,5 +54,8 @@ public class FunctionHandler : Singleton<FunctionHandler>
             Time.timeScale = 1f;
     }
 
-
+    public void Quit()
+    {
+        Application.Quit(); 
+    }
 }
