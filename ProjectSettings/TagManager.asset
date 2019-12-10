@@ -7,6 +7,9 @@ TagManager:
   - Cube
   - Liquid
   - Wall
+  - Water
+  - Exit
+  - UI
   layers:
   - Default
   - TransparentFX
