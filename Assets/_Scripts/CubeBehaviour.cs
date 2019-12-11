@@ -34,6 +34,29 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
 
+    [SerializeField] private bool isMoving = false;
+    public bool IsMoving
+    {
+        get
+        {
+            return isMoving;
+        }
+
+        set
+        {
+            isMoving = value;
+            if (value == false)
+            {
+                Vector3 tmp = transform.position;
+                tmp.x = Mathf.Round(tmp.x);
+                tmp.y = Mathf.Round(tmp.y);
+                tmp.z = Mathf.Round(tmp.z);
+
+                transform.position = tmp;
+            }
+        }
+    }
+
 
     
     private void OnTriggerEnter(Collider other)
@@ -74,6 +97,7 @@ public class CubeBehaviour : MonoBehaviour
     //Move coroutine
     private IEnumerator StopMove(Vector3 dir, bool CheckBelow = true)
     {
+        IsMoving = true;
         //Debug.Log("RE");
         float elapsed = 0;
         float moveDuration = 0.2f;
@@ -83,7 +107,7 @@ public class CubeBehaviour : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPos, startPos + dir, elapsed / moveDuration);
             elapsed += Time.deltaTime;
-            
+
             yield return null;
         }
         transform.position = startPos + dir;
@@ -92,9 +116,12 @@ public class CubeBehaviour : MonoBehaviour
         {
             if (CheckMoves.CanFall(transform))
             {
+                Debug.Log("CANFALL");
                 yield return StopMove(Vector3.down);
             }
         }
+
+        IsMoving = false;
     }
 
     //Push coroutine (Climb)

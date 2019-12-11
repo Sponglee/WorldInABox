@@ -13,6 +13,7 @@ public class CharacterMover : MonoBehaviour
     private Vector3 targetDir;
     private Vector3 targetRot;
 
+    [SerializeField] private bool IsMoving = false;
 
     //Move a character on cooldown
     public void MoveChar(SwipeDirection dir)
@@ -59,7 +60,7 @@ public class CharacterMover : MonoBehaviour
 
 
             //If player can Move
-            if (CheckMoves.CanMove(transform, targetDir, true))
+            if (!IsMoving && CheckMoves.CanMove(transform, targetDir, true))
             {
                 //Debug.Log("MOVE");
 
@@ -71,7 +72,7 @@ public class CharacterMover : MonoBehaviour
                 StartCoroutine(StopMove(targetDir));
             }
             //Or can climb
-            else if(CheckMoves.CanClimb(transform, targetDir))
+            else if(!IsMoving && CheckMoves.CanClimb(transform, targetDir))
             {
                 GameManager.Instance.SaveCubePosition(transform, transform.position);
 
@@ -86,6 +87,7 @@ public class CharacterMover : MonoBehaviour
     //Move sequence
     private IEnumerator StopMove(Vector3 dir,bool CheckBelow=true)
     {
+        IsMoving = true;
         float elapsed = 0;
         
         Vector3 startPos = transform.position;
@@ -106,11 +108,13 @@ public class CharacterMover : MonoBehaviour
                yield return StopMove(Vector3.down, true);
             }
         }
+        IsMoving = false;
     }
 
     //Climb sequence
     private IEnumerator StopClimb(Vector3 dir)
     {
+        
         //Move up, dont check what's below
         yield return StopMove(Vector3.up,false);
         //Move to dir

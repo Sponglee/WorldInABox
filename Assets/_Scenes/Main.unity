@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -424,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &118340477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225848883243385, guid: 85cc912b224f508499f1b9415def0a07,
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &188960441 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849220193029, guid: 85cc912b224f508499f1b9415def0a07,
@@ -1420,6 +1422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &288163824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849662458132, guid: 85cc912b224f508499f1b9415def0a07,
@@ -1491,6 +1494,7 @@ MonoBehaviour:
   anim: {fileID: 1387499633}
   moveDuration: 0.2
   moveCoolDown: 5
+  IsMoving: 0
 --- !u!136 &288540860
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1645,6 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &308412272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 1
+  isMoving: 0
 --- !u!65 &308412276
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2441,6 +2447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &507055825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225850101545502, guid: 85cc912b224f508499f1b9415def0a07,
@@ -2742,6 +2749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &615005350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225848758828386, guid: 85cc912b224f508499f1b9415def0a07,
@@ -3325,6 +3333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &769712218 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849258199391, guid: 85cc912b224f508499f1b9415def0a07,
@@ -3573,7 +3582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &844411650
 Transform:
   m_ObjectHideFlags: 0
@@ -3947,6 +3956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &919965228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225850288526904, guid: 85cc912b224f508499f1b9415def0a07,
@@ -4532,6 +4542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1029858435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849966485417, guid: 85cc912b224f508499f1b9415def0a07,
@@ -4766,6 +4777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1099443576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,6 +4902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1108354398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,6 +5027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1119050527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,6 +5152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1129159084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225850452566205, guid: 85cc912b224f508499f1b9415def0a07,
@@ -5284,6 +5299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1147512529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849631363792, guid: 85cc912b224f508499f1b9415def0a07,
@@ -5607,6 +5623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1208069355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225850406055303, guid: 85cc912b224f508499f1b9415def0a07,
@@ -5797,6 +5814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1245547780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6231,6 +6249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1306425630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,6 +6388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 1
+  isMoving: 0
 --- !u!65 &1360200142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6668,6 +6688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1460573646 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225848962331345, guid: 85cc912b224f508499f1b9415def0a07,
@@ -6952,6 +6973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 1
+  isMoving: 0
 --- !u!54 &1500835471
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7092,6 +7114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1532180045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849673720648, guid: 85cc912b224f508499f1b9415def0a07,
@@ -7260,6 +7283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1550074719
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,6 +7490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1571146979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225848779840697, guid: 85cc912b224f508499f1b9415def0a07,
@@ -7835,6 +7860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1733056193
 GameObject:
   m_ObjectHideFlags: 0
@@ -7959,6 +7985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &1764662077 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225849467456751, guid: 85cc912b224f508499f1b9415def0a07,
@@ -8045,6 +8072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &1813897400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: d0223f77114284b47a0e8b317e71e4dc,
@@ -8593,6 +8621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &2098756793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6516225848590323196, guid: 85cc912b224f508499f1b9415def0a07,
@@ -9611,6 +9640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346412978285792
 GameObject:
   m_ObjectHideFlags: 0
@@ -9953,6 +9983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346413010227424
 Transform:
   m_ObjectHideFlags: 0
@@ -10661,6 +10692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346413186220632
 Transform:
   m_ObjectHideFlags: 0
@@ -11784,6 +11816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!65 &5005346413391696104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11981,6 +12014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346413427692292
 GameObject:
   m_ObjectHideFlags: 0
@@ -12445,6 +12479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346413530613720
 GameObject:
   m_ObjectHideFlags: 0
@@ -12569,6 +12604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!33 &5005346413607995777
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12937,6 +12973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346413715639256
 GameObject:
   m_ObjectHideFlags: 0
@@ -13893,6 +13930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346413851943750
 Transform:
   m_ObjectHideFlags: 0
@@ -13958,6 +13996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!23 &5005346413851943768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14141,6 +14180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346413935232120
 GameObject:
   m_ObjectHideFlags: 0
@@ -14803,6 +14843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!33 &5005346414035846424
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14973,6 +15014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!1 &5005346414065568594
 GameObject:
   m_ObjectHideFlags: 0
@@ -15668,6 +15710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346414296504854
 Transform:
   m_ObjectHideFlags: 0
@@ -16389,6 +16432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346414385781272
 Transform:
   m_ObjectHideFlags: 0
@@ -16866,6 +16910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346414467108848
 Transform:
   m_ObjectHideFlags: 0
@@ -17548,6 +17593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!23 &5005346414640085568
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18160,6 +18206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!23 &5005346414775071824
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18284,6 +18331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346414830201220
 Transform:
   m_ObjectHideFlags: 0
@@ -18400,6 +18448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!33 &5005346414830201241
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18532,6 +18581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fixated: 0
   pushable: 0
+  isMoving: 0
 --- !u!4 &5005346414878398706
 Transform:
   m_ObjectHideFlags: 0
@@ -18675,7 +18725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005346414908747446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -0.27, z: -4}
+  m_LocalPosition: {x: -3, y: -0.2, z: -4}
   m_LocalScale: {x: 0.95, y: 0.4, z: 0.95}
   m_Children: []
   m_Father: {fileID: 5005346413715639259}
