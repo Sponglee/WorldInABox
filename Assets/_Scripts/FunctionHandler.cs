@@ -10,8 +10,6 @@ public class FunctionHandler : Singleton<FunctionHandler>
     public Transform menuCanvas;
     public Transform winCanvas;
     public Transform uiCanvas;
-
-
     public Text menuText;
 
     public void Restart()

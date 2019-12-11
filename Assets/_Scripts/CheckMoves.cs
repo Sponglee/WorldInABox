@@ -5,12 +5,9 @@ using UnityEngine;
 public static class CheckMoves
 {
 
-    
     //Check if target can move or not, in case of Player - check cube after target aswell
     public static bool CanMove(Transform moveTransform, Vector3 dir, bool IsPlayer = false)
     {
-        
-
         Transform dirCheck = RayCheck(moveTransform.position, dir);
        
         //Cast a ray towards targetDir
@@ -32,7 +29,7 @@ public static class CheckMoves
                 }
                 //Check if that cube can climb itself
                 else if (IsPlayer && dirCheck.GetComponent<CubeBehaviour>() != null
-                            && dirCheck.GetComponent<CubeBehaviour>().Movable
+                            && dirCheck.GetComponent<CubeBehaviour>().Pushable
                                 && CanClimb(dirCheck, dir))
                 {
                     return true;
@@ -44,15 +41,17 @@ public static class CheckMoves
                 }
                 else return false;
             }
+            //In the water
             else if(dirCheck.CompareTag("Liquid"))
             {
                 return true;
             }
-            else if(dirCheck.CompareTag("Exit"))
+            //Pushed to exit and is player
+            else if(dirCheck.CompareTag("Exit") && moveTransform.CompareTag("Player"))
             {
                 return true;
             }
-            //Check for boundary
+            //Check for boundary (walls)
             else
             {
                 return false;
@@ -63,7 +62,6 @@ public static class CheckMoves
             return true;
        
     }
-
 
     //Check if can climb on top
     public static bool CanClimb(Transform moveTransform, Vector3 dir)
@@ -126,30 +124,4 @@ public static class CheckMoves
 
         return null;
     }
-
-
-
-    //public static Transform CanPushUp(Transform moveTransform, Vector3 dir)
-    //{
-    //    Ray rayDown = new Ray(moveTransform.position, dir);
-    //    RaycastHit hit;
-    //    //Shoot ray up from that cube
-    //    if (Physics.Raycast(rayDown, out hit, 1.2f))
-    //    {
-    //        //Debug.Log(hitDown.transform.name);
-    //        if (hit.transform.CompareTag("Cube") && hit.transform.GetComponent<CubeBehaviour>().Movable)
-    //        {
-    //            Debug.Log("Can Push up? " + hit.transform.name);
-    //            //Move 
-    //            if(CanClimb(hit.transform, dir))
-    //            {
-                   
-    //                return hit.transform; 
-    //            }
-    //        }
-    //        else return null;
-    //    }
-    //    return null;
-    //}
-
 }

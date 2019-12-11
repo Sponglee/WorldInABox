@@ -5907,7 +5907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5c784680fa1c74bac1aee41e66070a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeResistance: 0.2
+  swipeResistance: 0
   SwipeC: 1
   swipeValue: 0
   charMover: {fileID: 288540859}

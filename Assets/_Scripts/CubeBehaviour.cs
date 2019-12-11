@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CubeBehaviour : MonoBehaviour
 {
-    
+    //Toggle if object can't be moved
     [SerializeField] private bool fixated = false;
     public bool Fixated
     {
@@ -19,21 +19,23 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
 
-
-    [SerializeField] private bool movable = false;
-    public bool Movable
+    //Toggle if object can be pushed up
+    [SerializeField] private bool pushable = false;
+    public bool Pushable
     {
         get
         {
-            return movable;
+            return pushable;
         }
 
         set
         {
-            movable = value;
+            pushable = value;
         }
     }
 
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -45,7 +47,8 @@ public class CubeBehaviour : MonoBehaviour
 
                 Move(transform.position - other.transform.position);
             }
-            else if (Movable && CheckMoves.CanClimb(transform, (transform.position - other.transform.position).normalized))
+            //Or can be pushed and push
+            else if (Pushable && CheckMoves.CanClimb(transform, (transform.position - other.transform.position).normalized))
             {
                 GameManager.Instance.SaveCubePosition(transform, transform.position);
 
@@ -54,18 +57,21 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
 
+
+    //Push this object up(climb)
     public void PushUp(Vector3 dir)
     {
         StartCoroutine(StopPushUp(dir.normalized));
     }
 
-    
+    //Move object to dir
     private void Move(Vector3 dir, bool CheckBelow = true)
     {
         StartCoroutine(StopMove(dir.normalized, CheckBelow));
     }
 
 
+    //Move coroutine
     private IEnumerator StopMove(Vector3 dir, bool CheckBelow = true)
     {
         //Debug.Log("RE");
@@ -91,6 +97,7 @@ public class CubeBehaviour : MonoBehaviour
         }
     }
 
+    //Push coroutine (Climb)
     private IEnumerator StopPushUp(Vector3 dir)
     {
         yield return StopMove(Vector3.up, false);

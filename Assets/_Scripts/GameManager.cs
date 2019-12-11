@@ -11,96 +11,90 @@ public class MoveInfo
     
 }
 
-public class TickInfo
-{
-    public List<MoveInfo> tickElements = new List<MoveInfo>();
-}
 
 
 public class GameManager : Singleton<GameManager>
 {
-    public Stack<TickInfo> moves;
+    //Stack of moves to revert
+    public Stack<List<MoveInfo>> moves;
+    //MoveInfos per tick
+    public List<MoveInfo> tickMoves;
 
-    //Debug
-    public TickInfo move = new TickInfo();
-
-    public TickInfo tickMoves;
-
+    //Tick specifications
     public float tick = 0.5f;
     public float coolDown = 1f;
     public bool SaveTickInProgress = false;
-    public bool RevertInProgress = false;
+  
 
     private void Start()
     {
-        moves = new Stack<TickInfo>();
-        tickMoves = new TickInfo();
+        moves = new Stack<List<MoveInfo>>();
+        tickMoves = new List<MoveInfo>();
     }
 
     private void Update()
     {
+        //If save was initiated - wait until tickTime to save
         if(SaveTickInProgress)
         {
             coolDown += Time.deltaTime;
-            if(coolDown>tick)
+
+            //If cooldown is reached - Save every move within one tick, clear data for next tick
+            if (coolDown>tick)
             {
-                Debug.Log("TS>" + tickMoves.tickElements.Count);
-                //moves.Push(tickMoves);
-                move = tickMoves;
-                
-                //Debug.Log("T>" + moves.Peek().tickElements.Count);
+                //Add every moveInfo from last tick into temporary container
+                List<MoveInfo> tmpList = new List<MoveInfo>();
+                foreach (var item in tickMoves)
+                {
+                    tmpList.Add(item);
+                }
+
+                //Save tickMoveData and reset the tick
+                moves.Push(tmpList);
                 coolDown = 0;
                 SaveTickInProgress = false;
+                tickMoves.Clear();   
             }
         }
       
     }
 
+    //Save cube moveInfo - transform reference and position
     public void SaveCubePosition(Transform cube, Vector3 position)
     {
-        if(!RevertInProgress)
-        {
             SaveTickInProgress = true;
-
-            if (coolDown > tick)
-                tickMoves.tickElements.Clear();
-
-
+         
+            //Create a MoveInfo container to save move data per obj
             MoveInfo tmpInfo = new MoveInfo();
             tmpInfo.element = cube;
             tmpInfo.elemPos = position;
-            tickMoves.tickElements.Add(tmpInfo);
-            Debug.Log("S>" + tickMoves.tickElements.Count);
-        }
-       
+            tickMoves.Add(tmpInfo);
     }
 
-
+    //Get back turns
     public void RevertMove()
     {
-        if(move != null /*moves.Count > 0*/)
+        //While there're moves
+        if (moves.Count > 0)
         {
-            RevertInProgress = true;
-            StartCoroutine(StopRevertInProgress());
-            TickInfo tmpInfo = new TickInfo();
-            //tmpInfo = moves.Pop();
-            tmpInfo = move;
+            //Prepare a container for reverted tickMoves
+            List<MoveInfo> tmpInfo = new List<MoveInfo>();
+            
+            //Get last tick from stack
+            tmpInfo = moves.Pop();
 
-            //Debug.Log("R>" + moves.Count + " : " + tmpInfo.tickElements.Count);
-
-            foreach (var tickElem in tmpInfo.tickElements)
+            //Set every position within one tick
+            foreach (var tickElem in tmpInfo)
             {
-                tickElem.element.position  = tickElem.elemPos;
+                tickElem.element.position = tickElem.elemPos;
             }
-
-            move.tickElements.Clear();
+        }
+        else
+        {
+            Debug.Log("NONE");
         }
        
     }
 
-    private IEnumerator StopRevertInProgress()
-    {
-        yield return new WaitForSeconds(0.5f);
-        RevertInProgress = false;
-    }
+  
 }

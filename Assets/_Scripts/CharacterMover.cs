@@ -57,6 +57,8 @@ public class CharacterMover : MonoBehaviour
             //Move depending on switch instructions
             transform.eulerAngles = targetRot;
 
+
+            //If player can Move
             if (CheckMoves.CanMove(transform, targetDir, true))
             {
                 //Debug.Log("MOVE");
@@ -68,6 +70,7 @@ public class CharacterMover : MonoBehaviour
 
                 StartCoroutine(StopMove(targetDir));
             }
+            //Or can climb
             else if(CheckMoves.CanClimb(transform, targetDir))
             {
                 GameManager.Instance.SaveCubePosition(transform, transform.position);
