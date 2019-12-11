@@ -12,6 +12,10 @@ public class FunctionHandler : Singleton<FunctionHandler>
     public Transform uiCanvas;
     public Text menuText;
 
+
+    public Transform revertButton;
+
+
     public void Restart()
     {
         Time.timeScale = 1f;
@@ -39,6 +43,26 @@ public class FunctionHandler : Singleton<FunctionHandler>
         else if(Time.timeScale == 0f)
             Time.timeScale = 1f;
     }
+
+    //Enable uielements button
+    //Make this event later
+    public void EnableButton(string name, bool Action)
+    {
+        Transform target = null;
+
+        switch (name)
+        {
+            case "Revert":
+                target = revertButton;
+                break;
+            default:
+                break;
+        }
+
+        target.gameObject.SetActive(!target.gameObject.activeSelf);
+    }
+
+    
 
     public void GameOver() 
     {

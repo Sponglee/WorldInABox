@@ -16,7 +16,10 @@ public class MoveInfo
 public class GameManager : Singleton<GameManager>
 {
     //Stack of moves to revert
-    public Stack<List<MoveInfo>> moves;
+    [SerializeField]
+    private Stack<List<MoveInfo>> moves;
+   
+
     //MoveInfos per tick
     public List<MoveInfo> tickMoves;
 
@@ -24,7 +27,8 @@ public class GameManager : Singleton<GameManager>
     public float tick = 0.5f;
     public float coolDown = 1f;
     public bool SaveTickInProgress = false;
-  
+
+   
 
     private void Start()
     {
@@ -53,7 +57,11 @@ public class GameManager : Singleton<GameManager>
                 moves.Push(tmpList);
                 coolDown = 0;
                 SaveTickInProgress = false;
-                tickMoves.Clear();   
+                tickMoves.Clear();
+
+                //Enable ui button
+                if (moves.Count == 1)
+                    FunctionHandler.Instance.EnableButton("Revert", true);
             }
         }
       
@@ -74,6 +82,11 @@ public class GameManager : Singleton<GameManager>
     //Get back turns
     public void RevertMove()
     {
+        //Enable ui button
+        if (moves.Count == 1)
+            FunctionHandler.Instance.EnableButton("Revert", true);
+        
+
         //While there're moves
         if (moves.Count > 0)
         {
@@ -89,10 +102,7 @@ public class GameManager : Singleton<GameManager>
                 tickElem.element.position = tickElem.elemPos;
             }
         }
-        else
-        {
-            Debug.Log("NONE");
-        }
+      
        
     }
 

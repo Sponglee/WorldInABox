@@ -44,7 +44,12 @@ public static class CheckMoves
             //In the water
             else if(dirCheck.CompareTag("Liquid"))
             {
-                return true;
+                Debug.Log("LIQUID");
+                if (!RayCheck(dirCheck.position, dir).CompareTag("Wall"))
+                    return true;
+                else
+                    return false;
+             
             }
             //Pushed to exit and is player
             else if(dirCheck.CompareTag("Exit") && moveTransform.CompareTag("Player"))
